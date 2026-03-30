@@ -22,7 +22,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -47,512 +46,150 @@
     border-bottom: 1px solid rgba(200,169,110,0.15);
     transition: all 0.4s ease;
   }
-  nav.scrolled {
-    padding: 0.8rem 3rem;
-    background: rgba(13,13,13,0.97);
-  }
-  .nav-logo {
-    display: flex; align-items: center; gap: 0.75rem;
-    text-decoration: none;
-  }
-  .nav-logo img {
-    height: 42px; width: auto;
-    filter: drop-shadow(0 0 8px rgba(200,169,110,0.4));
-  }
-  .nav-logo-text {
-    display: flex; flex-direction: column; line-height: 1.1;
-  }
-  .nav-logo-text .cn {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 0.9rem; font-weight: 600;
-    color: var(--gold-light);
-    letter-spacing: 0.05em;
-  }
-  .nav-logo-text .en-sub {
-    font-family: 'Cinzel', serif;
-    font-size: 0.5rem; font-weight: 400;
-    color: var(--mist);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-  .nav-links {
-    display: flex; align-items: center; gap: 2rem;
-    list-style: none;
-  }
-  .nav-links a {
-    color: rgba(249,245,238,0.7); text-decoration: none;
-    font-size: 0.78rem; letter-spacing: 0.08em;
-    font-family: 'Noto Sans SC', sans-serif;
-    transition: color 0.3s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -3px; left: 0; right: 100%;
-    height: 1px; background: var(--gold);
-    transition: right 0.3s ease;
-  }
+  nav.scrolled { padding: 0.8rem 3rem; background: rgba(13,13,13,0.97); }
+  .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+  .nav-logo img { height: 42px; width: auto; filter: drop-shadow(0 0 8px rgba(200,169,110,0.4)); }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-text .cn { font-family: 'Noto Serif SC', serif; font-size: 0.9rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.05em; }
+  .nav-logo-text .en-sub { font-family: 'Cinzel', serif; font-size: 0.5rem; font-weight: 400; color: var(--mist); letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(249,245,238,0.7); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.08em; font-family: 'Noto Sans SC', sans-serif; transition: color 0.3s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 100%; height: 1px; background: var(--gold); transition: right 0.3s ease; }
   .nav-links a:hover { color: var(--gold-light); }
   .nav-links a:hover::after { right: 0; }
-  .lang-btn {
-    display: flex; align-items: center; gap: 0.5rem;
-    background: none; border: 1px solid rgba(200,169,110,0.4);
-    color: var(--gold-light); cursor: pointer;
-    font-size: 0.72rem; letter-spacing: 0.1em;
-    padding: 0.4rem 0.9rem; border-radius: 2px;
-    font-family: 'Cinzel', serif;
-    transition: all 0.3s;
-  }
-  .lang-btn:hover {
-    background: rgba(200,169,110,0.12);
-    border-color: var(--gold);
-  }
+  .lang-btn { display: flex; align-items: center; gap: 0.5rem; background: none; border: 1px solid rgba(200,169,110,0.4); color: var(--gold-light); cursor: pointer; font-size: 0.72rem; letter-spacing: 0.1em; padding: 0.4rem 0.9rem; border-radius: 2px; font-family: 'Cinzel', serif; transition: all 0.3s; }
+  .lang-btn:hover { background: rgba(200,169,110,0.12); border-color: var(--gold); }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    justify-content: center;
-    position: relative; overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(135deg, #080808 0%, #111008 50%, #0a100a 100%);
-  }
-  .hero-bg::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 60% 50%, rgba(200,169,110,0.06) 0%, transparent 70%);
-  }
-  .hero-scene {
-    position: absolute; inset: 0; z-index: 1;
-    background: url('https://imagehub.tianzeqi.dev/file/1764061873786_顺为前台.png') center/cover no-repeat;
-    opacity: 0.5;
-    filter: saturate(0.4) contrast(1.1);
-  }
-  .hero-scene::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to right, rgba(13,13,13,0.98) 35%, rgba(13,13,13,0.4) 65%, rgba(13,13,13,0.8) 100%),
-                linear-gradient(to bottom, rgba(13,13,13,0.3) 0%, transparent 30%, transparent 70%, rgba(13,13,13,0.9) 100%);
-  }
-  /* Decorative grid lines */
-  .hero-grid {
-    position: absolute; inset: 0; z-index: 2;
-    background-image:
-      linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse 80% 80% at 30% 50%, black 0%, transparent 70%);
-  }
-  .hero-content {
-    position: relative; z-index: 3;
-    padding: 0 3rem;
-    max-width: 800px;
-    animation: heroFadeIn 1.4s ease forwards;
-  }
-  @keyframes heroFadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-eyebrow {
-    display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .hero-eyebrow-line {
-    width: 50px; height: 1px; background: var(--gold);
-  }
-  .hero-eyebrow span {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem; letter-spacing: 0.25em;
-    color: var(--gold); text-transform: uppercase;
-  }
-  .hero-title-zh {
-    font-family: 'Noto Serif SC', serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--paper);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.5rem;
-  }
-  .hero-title-zh strong {
-    font-weight: 600;
-    color: var(--gold-light);
-  }
-  .hero-title-en {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    color: var(--mist);
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-  }
-  .hero-tagline {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1rem;
-    color: var(--gold);
-    letter-spacing: 0.25em;
-    margin-bottom: 0.5rem;
-    font-weight: 300;
-    font-style: italic;
-  }
-  .hero-desc {
-    font-size: 0.88rem;
-    color: rgba(249,245,238,0.55);
-    line-height: 1.9;
-    max-width: 480px;
-    letter-spacing: 0.02em;
-    margin-bottom: 2.5rem;
-  }
-  .hero-cta {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-  }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.9rem 2rem;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-    color: var(--ink);
-    font-family: 'Cinzel', serif;
-    font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.15em;
-    text-decoration: none;
-    border: none; cursor: pointer;
-    transition: all 0.35s;
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-  }
-  .btn-primary:hover {
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(200,169,110,0.3);
-  }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.9rem 2rem;
-    background: transparent;
-    color: var(--gold-light);
-    font-family: 'Cinzel', serif;
-    font-size: 0.72rem; font-weight: 400;
-    letter-spacing: 0.15em;
-    text-decoration: none;
-    border: 1px solid rgba(200,169,110,0.5);
-    cursor: pointer;
-    transition: all 0.35s;
-  }
-  .btn-outline:hover {
-    background: rgba(200,169,110,0.08);
-    border-color: var(--gold);
-  }
-  .hero-scroll {
-    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-    z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    animation: pulseDown 2s ease infinite;
-  }
-  @keyframes pulseDown {
-    0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
-    50% { opacity: 1; transform: translateX(-50%) translateY(6px); }
-  }
-  .hero-scroll span {
-    font-size: 0.6rem; letter-spacing: 0.2em; color: var(--mist);
-    font-family: 'Cinzel', serif;
-  }
-  .hero-scroll-line {
-    width: 1px; height: 40px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-  }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, #080808 0%, #111008 50%, #0a100a 100%); }
+  .hero-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 60% 50%, rgba(200,169,110,0.06) 0%, transparent 70%); }
+  .hero-scene { position: absolute; inset: 0; z-index: 1; background: url('https://imagehub.tianzeqi.dev/file/1764061873786_顺为前台.png') center/cover no-repeat; opacity: 0.5; filter: saturate(0.4) contrast(1.1); }
+  .hero-scene::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,13,13,0.98) 35%, rgba(13,13,13,0.4) 65%, rgba(13,13,13,0.8) 100%), linear-gradient(to bottom, rgba(13,13,13,0.3) 0%, transparent 30%, transparent 70%, rgba(13,13,13,0.9) 100%); }
+  .hero-grid { position: absolute; inset: 0; z-index: 2; background-image: linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 80% at 30% 50%, black 0%, transparent 70%); }
+  .hero-content { position: relative; z-index: 3; padding: 0 3rem; max-width: 800px; animation: heroFadeIn 1.4s ease forwards; }
+  @keyframes heroFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .hero-eyebrow-line { width: 50px; height: 1px; background: var(--gold); }
+  .hero-eyebrow span { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; }
+  .hero-title-zh { font-family: 'Noto Serif SC', serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 300; line-height: 1.15; color: var(--paper); letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+  .hero-title-zh strong { font-weight: 600; color: var(--gold-light); }
+  .hero-title-en { font-family: 'Cinzel', serif; font-size: clamp(0.8rem, 1.5vw, 1.1rem); font-weight: 400; letter-spacing: 0.18em; color: var(--mist); margin-bottom: 2rem; text-transform: uppercase; }
+  .hero-tagline { font-family: 'Noto Serif SC', serif; font-size: 1rem; color: var(--gold); letter-spacing: 0.25em; margin-bottom: 0.5rem; font-weight: 300; font-style: italic; }
+  .hero-desc { font-size: 0.88rem; color: rgba(249,245,238,0.55); line-height: 1.9; max-width: 480px; letter-spacing: 0.02em; margin-bottom: 2.5rem; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--ink); font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-decoration: none; border: none; cursor: pointer; transition: all 0.35s; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
+  .btn-primary:hover { background: linear-gradient(135deg, var(--gold), var(--gold-light)); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,169,110,0.3); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; background: transparent; color: var(--gold-light); font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.15em; text-decoration: none; border: 1px solid rgba(200,169,110,0.5); cursor: pointer; transition: all 0.35s; }
+  .btn-outline:hover { background: rgba(200,169,110,0.08); border-color: var(--gold); }
+  .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; animation: pulseDown 2s ease infinite; }
+  @keyframes pulseDown { 0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); } 50% { opacity: 1; transform: translateX(-50%) translateY(6px); } }
+  .hero-scroll span { font-size: 0.6rem; letter-spacing: 0.2em; color: var(--mist); font-family: 'Cinzel', serif; }
+  .hero-scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
 
   /* MARQUEE */
-  .marquee-strip {
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
-    padding: 0.6rem 0; overflow: hidden;
-    display: flex;
-  }
-  .marquee-inner {
-    display: flex; gap: 3rem; white-space: nowrap;
-    animation: marquee 70s linear infinite;
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  .marquee-item {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem; letter-spacing: 0.2em;
-    color: var(--ink); font-weight: 600;
-    display: flex; align-items: center; gap: 1.5rem;
-  }
+  .marquee-strip { background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark)); padding: 0.6rem 0; overflow: hidden; display: flex; }
+  .marquee-inner { display: flex; gap: 3rem; white-space: nowrap; animation: marquee 70s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-item { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--ink); font-weight: 600; display: flex; align-items: center; gap: 1.5rem; }
   .marquee-item::after { content: '◆'; font-size: 0.5rem; }
 
+  /* SECTION COMMON */
+  .section { padding: 7rem 3rem; max-width: 1200px; margin: 0 auto; }
+  .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .section-label-num { font-family: 'Cormorant Garamond', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.15em; }
+  .section-label-line { width: 40px; height: 1px; background: var(--gold-dark); }
+  .section-label-text { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.25em; color: var(--mist); text-transform: uppercase; }
+  .section-heading-zh { font-family: 'Noto Serif SC', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--paper); letter-spacing: 0.06em; line-height: 1.3; margin-bottom: 0.5rem; }
+  .section-heading-en { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--mist); letter-spacing: 0.2em; margin-bottom: 2.5rem; }
+
   /* ABOUT */
-  .section {
-    padding: 7rem 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .section-label {
-    display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .section-label-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem; color: var(--gold);
-    letter-spacing: 0.15em;
-  }
-  .section-label-line {
-    width: 40px; height: 1px; background: var(--gold-dark);
-  }
-  .section-label-text {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem; letter-spacing: 0.25em;
-    color: var(--mist); text-transform: uppercase;
-  }
-  .section-heading-zh {
-    font-family: 'Noto Serif SC', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 300;
-    color: var(--paper);
-    letter-spacing: 0.06em;
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
-  }
-  .section-heading-en {
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    color: var(--mist);
-    letter-spacing: 0.2em;
-    margin-bottom: 2.5rem;
-  }
-
-  /* ABOUT LAYOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: center;
-  }
-  .about-text p {
-    color: rgba(249,245,238,0.65);
-    font-size: 0.9rem; line-height: 2;
-    letter-spacing: 0.03em;
-    margin-bottom: 1.5rem;
-  }
-  .about-visual {
-    position: relative;
-  }
-  .about-img-wrap {
-    position: relative;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-  }
-  .about-img-wrap img {
-    width: 100%; height: 100%; object-fit: cover;
-    filter: saturate(0.7) contrast(1.05);
-    transition: transform 0.8s ease;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-text p { color: rgba(249,245,238,0.65); font-size: 0.9rem; line-height: 2; letter-spacing: 0.03em; margin-bottom: 1.5rem; }
+  .about-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+  .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.7) contrast(1.05); transition: transform 0.8s ease; }
   .about-img-wrap:hover img { transform: scale(1.04); }
-  .about-img-frame {
-    position: absolute;
-    top: -12px; right: -12px; bottom: 12px; left: 12px;
-    border: 1px solid rgba(200,169,110,0.3);
-    pointer-events: none;
-  }
-  .about-img-corner {
-    position: absolute; bottom: -8px; left: -8px;
-    width: 40px; height: 40px;
-    border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold);
-  }
-  .about-motto {
-    margin-top: 2rem;
-    padding: 1.5rem 2rem;
-    border-left: 2px solid var(--gold);
-    background: rgba(200,169,110,0.04);
-  }
-  .about-motto p {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1.1rem; color: var(--gold-light);
-    letter-spacing: 0.2em; font-weight: 300;
-    margin: 0;
-  }
+  .about-img-frame { position: absolute; top: -12px; right: -12px; bottom: 12px; left: 12px; border: 1px solid rgba(200,169,110,0.3); pointer-events: none; }
+  .about-img-corner { position: absolute; bottom: -8px; left: -8px; width: 40px; height: 40px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+  .about-motto { margin-top: 2rem; padding: 1.5rem 2rem; border-left: 2px solid var(--gold); background: rgba(200,169,110,0.04); }
+  .about-motto p { font-family: 'Noto Serif SC', serif; font-size: 1.1rem; color: var(--gold-light); letter-spacing: 0.2em; font-weight: 300; margin: 0; }
 
-  /* DIVIDER */
-  .gold-divider {
-    max-width: 1200px; margin: 0 auto;
-    padding: 0 3rem;
-    display: flex; align-items: center; gap: 1.5rem;
-  }
+  /* GOLD DIVIDER */
+  .gold-divider { max-width: 1200px; margin: 0 auto; padding: 0 3rem; display: flex; align-items: center; gap: 1.5rem; }
   .gold-divider-line { flex: 1; height: 1px; background: rgba(200,169,110,0.2); }
-  .gold-divider-icon {
-    font-size: 0.6rem; color: var(--gold); letter-spacing: 0.2em;
-  }
+  .gold-divider-icon { font-size: 0.6rem; color: var(--gold); letter-spacing: 0.2em; }
 
   /* SERVICES */
-  .services-bg {
-    background: linear-gradient(180deg, var(--ink) 0%, #0f0e09 50%, var(--ink) 100%);
-    padding: 7rem 0;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    margin-top: 3rem;
-    background: rgba(200,169,110,0.15);
-    border: 1px solid rgba(200,169,110,0.15);
-  }
-  .service-card {
-    background: var(--ink-mid);
-    padding: 2.5rem 2rem;
-    position: relative;
-    transition: background 0.4s;
-    cursor: default;
-    overflow: hidden;
-  }
-  .service-card::before {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity: 0; transition: opacity 0.4s;
-  }
+  .services-bg { background: linear-gradient(180deg, var(--ink) 0%, #0f0e09 50%, var(--ink) 100%); padding: 7rem 0; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 3rem; background: rgba(200,169,110,0.15); border: 1px solid rgba(200,169,110,0.15); }
+  .service-card { background: var(--ink-mid); padding: 2.5rem 2rem; position: relative; transition: background 0.4s; cursor: default; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity 0.4s; }
   .service-card:hover { background: rgba(200,169,110,0.06); }
   .service-card:hover::before { opacity: 1; }
-  .service-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; color: rgba(200,169,110,0.12);
-    font-weight: 300; line-height: 1;
-    margin-bottom: 1.5rem;
-    transition: color 0.4s;
-  }
+  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: rgba(200,169,110,0.12); font-weight: 300; line-height: 1; margin-bottom: 1.5rem; transition: color 0.4s; }
   .service-card:hover .service-num { color: rgba(200,169,110,0.2); }
-  .service-icon {
-    font-size: 1.6rem; margin-bottom: 1rem;
-    filter: grayscale(0.3);
-  }
-  .service-title-zh {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1rem; font-weight: 600;
-    color: var(--gold-light); letter-spacing: 0.05em;
-    margin-bottom: 0.3rem;
-  }
-  .service-title-en {
-    font-family: 'Cinzel', serif;
-    font-size: 0.55rem; letter-spacing: 0.18em;
-    color: var(--mist); text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  .service-desc {
-    font-size: 0.82rem; color: rgba(249,245,238,0.5);
-    line-height: 1.9; letter-spacing: 0.03em;
-  }
+  .service-icon { font-size: 1.6rem; margin-bottom: 1rem; filter: grayscale(0.3); }
+  .service-title-zh { font-family: 'Noto Serif SC', serif; font-size: 1rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+  .service-title-en { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; color: var(--mist); text-transform: uppercase; margin-bottom: 1rem; }
+  .service-desc { font-size: 0.82rem; color: rgba(249,245,238,0.5); line-height: 1.9; letter-spacing: 0.03em; }
 
   /* STATS */
-  .stats-strip {
-    padding: 5rem 3rem;
-    max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 2rem; text-align: center;
-  }
+  .stats-strip { padding: 5rem 3rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
   .stat-item { padding: 2rem; border: 1px solid rgba(200,169,110,0.12); }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem; font-weight: 300;
-    color: var(--gold); line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-  .stat-label-zh {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 0.78rem; color: rgba(249,245,238,0.6);
-    letter-spacing: 0.08em;
-  }
-  .stat-label-en {
-    font-family: 'Cinzel', serif;
-    font-size: 0.55rem; color: var(--mist);
-    letter-spacing: 0.15em; text-transform: uppercase;
-    margin-top: 0.2rem;
-  }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
+  .stat-label-zh { font-family: 'Noto Sans SC', sans-serif; font-size: 0.78rem; color: rgba(249,245,238,0.6); letter-spacing: 0.08em; }
+  .stat-label-en { font-family: 'Cinzel', serif; font-size: 0.55rem; color: var(--mist); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.2rem; }
+
+  /* BRANDS */
+  .brands-bg { background: linear-gradient(180deg, var(--ink) 0%, #0c0b06 50%, var(--ink) 100%); padding: 7rem 0; position: relative; overflow: hidden; }
+  .brands-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(200,169,110,0.04) 0%, transparent 70%); pointer-events: none; }
+  .brands-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; margin-top: 3rem; background: rgba(200,169,110,0.12); border: 1px solid rgba(200,169,110,0.12); }
+  .brand-card { background: var(--ink-mid); padding: 2.8rem 2.5rem; position: relative; overflow: hidden; transition: background 0.4s; }
+  .brand-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity 0.4s; }
+  .brand-card:hover { background: rgba(200,169,110,0.05); }
+  .brand-card:hover::after { opacity: 1; }
+  .brand-tag { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.2rem; }
+  .brand-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px rgba(200,169,110,0.5); }
+  .brand-tag-text { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; }
+  .brand-name-zh { font-family: 'Noto Serif SC', serif; font-size: 1.15rem; font-weight: 600; color: var(--paper); letter-spacing: 0.05em; line-height: 1.4; margin-bottom: 0.4rem; }
+  .brand-name-en { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; font-style: italic; color: var(--mist); letter-spacing: 0.06em; margin-bottom: 1.2rem; }
+  .brand-divider { width: 30px; height: 1px; background: rgba(200,169,110,0.4); margin-bottom: 1.2rem; }
+  .brand-desc { font-size: 0.82rem; color: rgba(249,245,238,0.5); line-height: 1.9; letter-spacing: 0.03em; }
+  .brand-icon { position: absolute; top: 2rem; right: 2rem; font-size: 2rem; opacity: 0.12; transition: opacity 0.4s; }
+  .brand-card:hover .brand-icon { opacity: 0.22; }
 
   /* CONTACT */
-  .contact-bg {
-    background: #080808;
-    padding: 7rem 0;
-  }
-  .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: start;
-    max-width: 1200px; margin: 0 auto;
-    padding: 0 3rem;
-  }
-  .contact-info-block {
-    display: flex; align-items: flex-start; gap: 1rem;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(200,169,110,0.1);
-  }
+  .contact-bg { background: #080808; padding: 7rem 0; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+  .contact-info-block { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(200,169,110,0.1); }
   .contact-info-block:last-child { border-bottom: none; }
   .contact-icon { font-size: 1.2rem; margin-top: 0.1rem; }
-  .contact-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem; letter-spacing: 0.2em;
-    color: var(--gold); margin-bottom: 0.3rem;
-  }
-  .contact-value {
-    font-size: 0.9rem; color: var(--paper-warm);
-    letter-spacing: 0.05em;
-  }
+  .contact-label { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.3rem; }
+  .contact-value { font-size: 0.9rem; color: var(--paper-warm); letter-spacing: 0.05em; }
   .contact-value a { color: inherit; text-decoration: none; transition: color 0.3s; }
   .contact-value a:hover { color: var(--gold-light); }
-  .contact-form {
-    display: flex; flex-direction: column; gap: 1rem;
-  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem; letter-spacing: 0.18em;
-    color: var(--gold); text-transform: uppercase;
-  }
-  .form-input, .form-textarea {
-    background: rgba(200,169,110,0.04);
-    border: 1px solid rgba(200,169,110,0.2);
-    color: var(--paper);
-    padding: 0.8rem 1rem;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 0.85rem;
-    outline: none;
-    transition: border-color 0.3s;
-    width: 100%;
-  }
-  .form-input:focus, .form-textarea:focus {
-    border-color: var(--gold);
-  }
+  .form-label { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; }
+  .form-input, .form-textarea { background: rgba(200,169,110,0.04); border: 1px solid rgba(200,169,110,0.2); color: var(--paper); padding: 0.8rem 1rem; font-family: 'Noto Sans SC', sans-serif; font-size: 0.85rem; outline: none; transition: border-color 0.3s; width: 100%; }
+  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
   .form-textarea { resize: vertical; min-height: 120px; }
   .form-input::placeholder, .form-textarea::placeholder { color: var(--mist); }
 
   /* FOOTER */
-  footer {
-    background: var(--ink);
-    border-top: 1px solid rgba(200,169,110,0.12);
-    padding: 2.5rem 3rem;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .footer-brand {
-    display: flex; align-items: center; gap: 0.75rem;
-  }
+  footer { background: var(--ink); border-top: 1px solid rgba(200,169,110,0.12); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-brand { display: flex; align-items: center; gap: 0.75rem; }
   .footer-brand img { height: 32px; opacity: 0.8; }
-  .footer-brand-name {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 0.78rem; color: var(--mist);
-    letter-spacing: 0.05em;
-  }
-  .footer-copy {
-    font-size: 0.7rem; color: var(--mist);
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.08em;
-  }
+  .footer-brand-name { font-family: 'Noto Serif SC', serif; font-size: 0.78rem; color: var(--mist); letter-spacing: 0.05em; }
+  .footer-copy { font-size: 0.7rem; color: var(--mist); font-family: 'Cinzel', serif; letter-spacing: 0.08em; }
 
-  /* FADE IN ON SCROLL */
-  .fade-up {
-    opacity: 0; transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .fade-up.visible {
-    opacity: 1; transform: translateY(0);
-  }
+  /* SCROLL FADE */
+  .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* GOLD SHIMMER */
+  @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+  .gold-shimmer { background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold-light) 40%, var(--gold) 60%, var(--gold-dark) 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
@@ -561,25 +198,12 @@
     .section { padding: 5rem 1.5rem; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
     .services-grid { grid-template-columns: 1fr; }
+    .brands-grid { grid-template-columns: 1fr; }
     .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 3rem 1.5rem; }
     .hero-content { padding: 0 1.5rem; }
     footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
     .gold-divider { padding: 0 1.5rem; }
-    .contact-bg .contact-grid { padding: 0 1.5rem; }
-  }
-
-  /* Gold shimmer animation */
-  @keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-  }
-  .gold-shimmer {
-    background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold-light) 40%, var(--gold) 60%, var(--gold-dark) 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 4s linear infinite;
+    .contact-grid { padding: 0 1.5rem; }
   }
 </style>
 </head>
@@ -598,6 +222,7 @@
   <ul class="nav-links">
     <li><a href="#about" class="zh">關於我們</a><a href="#about" class="en">About</a></li>
     <li><a href="#services" class="zh">業務版圖</a><a href="#services" class="en">Services</a></li>
+    <li><a href="#brands" class="zh">旗下品牌</a><a href="#brands" class="en">Brands</a></li>
     <li><a href="#contact" class="zh">聯絡我們</a><a href="#contact" class="en">Contact</a></li>
   </ul>
   <button class="lang-btn" onclick="toggleLang()">
@@ -616,36 +241,20 @@
       <span class="zh">順為國際集團有限公司</span>
       <span class="en">SHINEVISTA GLOBAL GROUP LIMITED</span>
     </div>
-    <h1 class="hero-title-zh zh">
-      以 <strong class="gold-shimmer">AI</strong> 驅動未來<br>以智慧重塑商業
-    </h1>
-    <h1 class="hero-title-zh en" style="font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,3rem);letter-spacing:0.05em;font-weight:300;">
-      <strong class="gold-shimmer">AI-Powered</strong> Business<br>Intelligence & Automation
-    </h1>
+    <h1 class="hero-title-zh zh">以 <strong class="gold-shimmer">AI</strong> 驅動未來<br>以智慧重塑商業</h1>
+    <h1 class="hero-title-zh en" style="font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,3rem);letter-spacing:0.05em;font-weight:300;"><strong class="gold-shimmer">AI-Powered</strong> Business<br>Intelligence &amp; Automation</h1>
     <p class="hero-title-en zh">SHINEVISTA GLOBAL GROUP LIMITED</p>
     <p class="hero-tagline zh">順勢而為，知行知止</p>
     <p class="hero-tagline en" style="font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:0.1em;">Act with the trend. Know when to advance, know when to rest.</p>
-    <p class="hero-desc zh">
-      深耕 AI 落地部署、自動化工作流與企業智能化轉型，<br>
-      助力企業以技術之力，從容應對新時代挑戰。
-    </p>
-    <p class="hero-desc en">
-      We specialize in enterprise AI deployment, automation workflows, and intelligent digital transformation — empowering businesses to thrive in the era of artificial intelligence.
-    </p>
+    <p class="hero-desc zh">深耕 AI 落地部署、自動化工作流與企業智能化轉型，<br>助力企業以技術之力，從容應對新時代挑戰。</p>
+    <p class="hero-desc en">We specialize in enterprise AI deployment, automation workflows, and intelligent digital transformation — empowering businesses to thrive in the era of artificial intelligence.</p>
     <div class="hero-cta">
-      <a href="#services" class="btn-primary">
-        <span class="zh">探索業務版圖</span>
-        <span class="en">Explore Services</span>
-      </a>
-      <a href="#contact" class="btn-outline">
-        <span class="zh">立即聯絡</span>
-        <span class="en">Contact Us</span>
-      </a>
+      <a href="#services" class="btn-primary"><span class="zh">探索業務版圖</span><span class="en">Explore Services</span></a>
+      <a href="#contact" class="btn-outline"><span class="zh">立即聯絡</span><span class="en">Contact Us</span></a>
     </div>
   </div>
   <div class="hero-scroll">
-    <span class="zh">向下探索</span>
-    <span class="en">Scroll</span>
+    <span class="zh">向下探索</span><span class="en">Scroll</span>
     <div class="hero-scroll-line"></div>
   </div>
 </section>
@@ -656,7 +265,7 @@
 </div>
 
 <!-- ABOUT -->
-<section id="about" style="padding: 7rem 0;">
+<section id="about" style="padding:7rem 0;">
   <div class="section fade-up">
     <div class="section-label">
       <span class="section-label-num">01</span>
@@ -716,8 +325,8 @@
         <div class="service-num">01</div>
         <div class="service-icon">🤖</div>
         <div class="service-title-zh zh">AI 自動化一對一部署</div>
-        <div class="service-title-zh en">AI & Automation Deployment</div>
-        <div class="service-title-en zh">AI & AUTOMATION · ONE-TO-ONE</div>
+        <div class="service-title-zh en">AI &amp; Automation Deployment</div>
+        <div class="service-title-en zh">AI &amp; AUTOMATION · ONE-TO-ONE</div>
         <div class="service-title-en en">AI · 自動化工作流 · 一對一落地</div>
         <p class="service-desc zh">AI 與自動化工作流的個性化企業落地方案，從需求診斷到系統交付，全程一對一深度陪跑，確保技術真正服務於業務增長。</p>
         <p class="service-desc en">Personalized AI and automation deployment for enterprises — from needs diagnosis to system delivery, with one-to-one in-depth guidance ensuring technology truly serves business growth.</p>
@@ -742,7 +351,7 @@
         <div class="service-title-en zh">INDEPENDENT SITE · AI · MARKETING</div>
         <div class="service-title-en en">獨立站 · AI · 自動化行銷</div>
         <p class="service-desc zh">從獨立站搭建到 AI 驅動的自動化行銷運營，整合 SEO、社交廣告、郵件行銷及數據分析，打造高轉化率的 DTC 品牌閉環。</p>
-        <p class="service-desc en">From independent site development to AI-driven automated marketing operations — integrating SEO, social advertising, email marketing, and data analytics to build high-conversion DTC brand ecosystems.</p>
+        <p class="service-desc en">From independent site development to AI-driven automated marketing — integrating SEO, social advertising, email marketing, and data analytics to build high-conversion DTC brand ecosystems.</p>
       </div>
 
       <div class="service-card">
@@ -817,12 +426,102 @@
   <div class="gold-divider-line"></div>
 </div>
 
+<!-- BRANDS -->
+<section id="brands" class="brands-bg">
+  <div class="section fade-up" style="padding-top:0;padding-bottom:0;">
+    <div class="section-label">
+      <span class="section-label-num">03</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-text zh">旗下品牌</span>
+      <span class="section-label-text en">Our Brands</span>
+    </div>
+    <h2 class="section-heading-zh zh">集團旗下企業</h2>
+    <h2 class="section-heading-zh en">Group Subsidiaries</h2>
+    <p class="section-heading-en zh">PORTFOLIO COMPANIES</p>
+    <p class="section-heading-en en">旗下品牌版圖</p>
+    <div class="brands-grid">
+
+      <div class="brand-card">
+        <div class="brand-icon">💰</div>
+        <div class="brand-tag">
+          <div class="brand-tag-dot"></div>
+          <span class="brand-tag-text zh">資本管理</span>
+          <span class="brand-tag-text en">Capital Management</span>
+        </div>
+        <div class="brand-name-zh zh">內蒙古商舟資本管理有限公司</div>
+        <div class="brand-name-zh en">Inner Mongolia Shangzhou Capital Management Co., Ltd.</div>
+        <div class="brand-name-en zh">Inner Mongolia Shangzhou Capital Management Co., Ltd.</div>
+        <div class="brand-name-en en">内蒙古商舟资本管理有限公司</div>
+        <div class="brand-divider"></div>
+        <p class="brand-desc zh">專注集團資本管理與對外戰略投資，以穩健的資本運作能力賦能集團多元化產業佈局，推動長期價值增長。</p>
+        <p class="brand-desc en">Focused on group capital management and external strategic investment, empowering the group's diversified industry layout with sound capital operations to drive long-term value growth.</p>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-icon">📋</div>
+        <div class="brand-tag">
+          <div class="brand-tag-dot"></div>
+          <span class="brand-tag-text zh">商業諮詢</span>
+          <span class="brand-tag-text en">Business Consulting</span>
+        </div>
+        <div class="brand-name-zh zh">內蒙古快船商業管理有限公司</div>
+        <div class="brand-name-zh en">Inner Mongolia Kuaichuan Business Management Co., Ltd.</div>
+        <div class="brand-name-en zh">Inner Mongolia Kuaichuan Business Management Co., Ltd.</div>
+        <div class="brand-name-en en">内蒙古快船商业管理有限公司</div>
+        <div class="brand-divider"></div>
+        <p class="brand-desc zh">提供專業商業諮詢管理服務與項目策劃，協助企業完善戰略佈局、優化管理架構，為各類商業項目提供全程規劃支持。</p>
+        <p class="brand-desc en">Providing professional business consulting management services and project planning, helping enterprises refine strategic layouts, optimize management structures, and offering full-cycle planning support for various business projects.</p>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-icon">⛏️</div>
+        <div class="brand-tag">
+          <div class="brand-tag-dot"></div>
+          <span class="brand-tag-text zh">工程建設</span>
+          <span class="brand-tag-text en">Engineering</span>
+        </div>
+        <div class="brand-name-zh zh">內蒙古前川工程有限公司</div>
+        <div class="brand-name-zh en">Inner Mongolia Qianchuan Engineering Co., Ltd.</div>
+        <div class="brand-name-en zh">Inner Mongolia Qianchuan Engineering Co., Ltd.</div>
+        <div class="brand-name-en en">内蒙古前川工程有限公司</div>
+        <div class="brand-divider"></div>
+        <p class="brand-desc zh">深耕礦山工程項目開發建設與道路運輸業務，依托豐富的工程實踐經驗，為資源型地區的基礎設施建設提供可靠保障。</p>
+        <p class="brand-desc en">Deeply engaged in mining engineering project development and road transportation, leveraging rich engineering experience to provide reliable support for infrastructure construction in resource-based regions.</p>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-icon">📦</div>
+        <div class="brand-tag">
+          <div class="brand-tag-dot"></div>
+          <span class="brand-tag-text zh">供應鏈</span>
+          <span class="brand-tag-text en">Supply Chain</span>
+        </div>
+        <div class="brand-name-zh zh">深圳穩金國際供應鏈有限公司</div>
+        <div class="brand-name-zh en">Shenzhen Wenjin International Supply Chain Co., Ltd.</div>
+        <div class="brand-name-en zh">Shenzhen Wenjin International Supply Chain Co., Ltd.</div>
+        <div class="brand-name-en en">深圳稳金国际供应链有限公司</div>
+        <div class="brand-divider"></div>
+        <p class="brand-desc zh">專注定制化 POD（按需印刷）禮品供應鏈服務，整合設計、生產、倉儲與全球配送，為跨境電商及品牌客戶提供一站式柔性供應鏈解決方案。</p>
+        <p class="brand-desc en">Specializing in customized POD (Print-on-Demand) gift supply chain services, integrating design, production, warehousing, and global distribution to provide one-stop flexible supply chain solutions for cross-border e-commerce and brand clients.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="gold-divider">
+  <div class="gold-divider-line"></div>
+  <div class="gold-divider-icon">◆ ◆ ◆</div>
+  <div class="gold-divider-line"></div>
+</div>
+
 <!-- CONTACT -->
 <section id="contact" class="contact-bg">
   <div class="contact-grid fade-up">
     <div>
       <div class="section-label" style="margin-bottom:1.5rem;">
-        <span class="section-label-num">03</span>
+        <span class="section-label-num">04</span>
         <div class="section-label-line"></div>
         <span class="section-label-text zh">聯絡我們</span>
         <span class="section-label-text en">Contact Us</span>
@@ -831,16 +530,13 @@
       <h2 class="section-heading-zh en" style="font-family:'Cinzel',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;">Begin Your<br><span style="color:var(--gold)">AI Transformation</span></h2>
       <p class="section-heading-en zh">GET IN TOUCH</p>
       <p class="section-heading-en en">與我們聯繫</p>
-
       <div style="margin-top:2.5rem;">
         <div class="contact-info-block">
           <div class="contact-icon">📧</div>
           <div>
             <div class="contact-label zh">電郵</div>
             <div class="contact-label en">EMAIL</div>
-            <div class="contact-value">
-              <a href="mailto:support@shinevista.group">support@shinevista.group</a>
-            </div>
+            <div class="contact-value"><a href="mailto:support@shinevista.group">support@shinevista.group</a></div>
           </div>
         </div>
         <div class="contact-info-block">
@@ -848,9 +544,7 @@
           <div>
             <div class="contact-label zh">電話</div>
             <div class="contact-label en">PHONE</div>
-            <div class="contact-value">
-              <a href="tel:+85261600784">+852 6160 0784</a>
-            </div>
+            <div class="contact-value"><a href="tel:+85261600784">+852 6160 0784</a></div>
           </div>
         </div>
         <div class="contact-info-block">
@@ -880,14 +574,13 @@
           <label class="form-label zh">業務需求</label>
           <label class="form-label en">INQUIRY TYPE</label>
           <select class="form-input" style="cursor:pointer;background:rgba(200,169,110,0.04);">
-            <option value="" class="zh">請選擇業務類型</option>
-            <option value="" class="en" style="display:none">Select service type</option>
-            <option>AI 自動化部署</option>
-            <option>亞馬遜運營培訓</option>
-            <option>獨立站行銷</option>
-            <option>私有化 AI 交付</option>
-            <option>智能 Agent</option>
-            <option>企業 AI 內訓</option>
+            <option value="">— 請選擇業務類型 / Select Service —</option>
+            <option>AI 自動化部署 / AI Automation Deployment</option>
+            <option>亞馬遜運營培訓 / Amazon Operations Training</option>
+            <option>獨立站行銷 / DTC Marketing</option>
+            <option>私有化 AI 交付 / Private AI Delivery</option>
+            <option>智能 Agent / Intelligent Agent</option>
+            <option>企業 AI 內訓 / Corporate AI Training</option>
           </select>
         </div>
         <div class="form-group">
@@ -914,9 +607,7 @@
       <div style="font-family:'Cinzel',serif;font-size:0.55rem;color:var(--gold-dark);letter-spacing:0.1em;margin-top:0.1rem;">順勢而為，知行知止</div>
     </div>
   </div>
-  <div class="footer-copy">
-    © 2025 SHINEVISTA GLOBAL GROUP LIMITED. ALL RIGHTS RESERVED.
-  </div>
+  <div class="footer-copy">© 2025 SHINEVISTA GLOBAL GROUP LIMITED. ALL RIGHTS RESERVED.</div>
 </footer>
 
 <script>
@@ -924,69 +615,59 @@
 function toggleLang() {
   const body = document.body;
   if (body.classList.contains('lang-zh')) {
-    body.classList.remove('lang-zh');
-    body.classList.add('lang-en');
+    body.classList.replace('lang-zh', 'lang-en');
     document.documentElement.lang = 'en';
   } else {
-    body.classList.remove('lang-en');
-    body.classList.add('lang-zh');
+    body.classList.replace('lang-en', 'lang-zh');
     document.documentElement.lang = 'zh-HK';
   }
 }
 
 // NAV SCROLL
 window.addEventListener('scroll', () => {
-  const nav = document.getElementById('mainNav');
-  if (window.scrollY > 80) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 80);
 });
 
-// MARQUEE (duplicate items)
-const items = [
+// MARQUEE
+const marqueeItems = [
   'AI 企業落地解決方案', 'AI Enterprise Solutions',
   '亞馬遜智能運營', 'Amazon Smart Operations',
   '私有化模型部署', 'Private Model Deployment',
   '自動化工作流', 'Automation Workflows',
   '智能 Agent 編排', 'Intelligent Agent Orchestration',
-  '企業 AI 提效內訓', 'Corporate AI Training'
+  '企業 AI 提效內訓', 'Corporate AI Training',
+  '集團資本管理', 'Group Capital Management',
+  'POD 禮品供應鏈', 'POD Gift Supply Chain'
 ];
-const marquee = document.getElementById('marqueeInner');
-const html = [...items, ...items, ...items, ...items].map(t =>
-  `<span class="marquee-item">${t}</span>`
-).join('');
-marquee.innerHTML = html + html;
+const marqueeEl = document.getElementById('marqueeInner');
+const marqueeHTML = [...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems]
+  .map(t => `<span class="marquee-item">${t}</span>`).join('');
+marqueeEl.innerHTML = marqueeHTML + marqueeHTML;
 
-// FADE IN ON SCROLL
+// SCROLL FADE-IN
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
 // FORM SUBMIT
 function handleSubmit(btn) {
-  const isZh = document.body.classList.contains('lang-zh');
   btn.style.opacity = '0.7';
   btn.style.pointerEvents = 'none';
   setTimeout(() => {
-    btn.querySelector('.zh').textContent = isZh ? '已發送 ✓' : '已發送 ✓';
+    btn.querySelector('.zh').textContent = '已發送 ✓';
     btn.querySelector('.en').textContent = 'Sent ✓';
     btn.style.opacity = '1';
   }, 1200);
 }
 
-// SMOOTH ANCHOR
+// SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
 </script>
