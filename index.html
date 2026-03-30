@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>順為國際集團有限公司 | SHINEVISTA GLOBAL GROUP LIMITED</title>
+<link rel="icon" href="https://imagehub.tianzeqi.dev/file/favicon/1774843710062_顺为国际集团.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+SC:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8A96E;
+    --gold-light: #E2C99A;
+    --gold-dark: #9A7A42;
+    --ink: #0D0D0D;
+    --ink-mid: #1A1A1A;
+    --ink-soft: #2A2A2A;
+    --paper: #F9F5EE;
+    --paper-warm: #F2EBD9;
+    --mist: #8A8070;
+    --accent: #3D6B6B;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* LANG SWITCH */
+  .lang-en .zh { display: none !important; }
+  .lang-zh .en { display: none !important; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(200,169,110,0.15);
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {
+    padding: 0.8rem 3rem;
+    background: rgba(13,13,13,0.97);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.75rem;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    height: 42px; width: auto;
+    filter: drop-shadow(0 0 8px rgba(200,169,110,0.4));
+  }
+  .nav-logo-text {
+    display: flex; flex-direction: column; line-height: 1.1;
+  }
+  .nav-logo-text .cn {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.9rem; font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+  }
+  .nav-logo-text .en-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem; font-weight: 400;
+    color: var(--mist);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(249,245,238,0.7); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.08em;
+    font-family: 'Noto Sans SC', sans-serif;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0; right: 100%;
+    height: 1px; background: var(--gold);
+    transition: right 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a:hover::after { right: 0; }
+  .lang-btn {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: none; border: 1px solid rgba(200,169,110,0.4);
+    color: var(--gold-light); cursor: pointer;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+    padding: 0.4rem 0.9rem; border-radius: 2px;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s;
+  }
+  .lang-btn:hover {
+    background: rgba(200,169,110,0.12);
+    border-color: var(--gold);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(135deg, #080808 0%, #111008 50%, #0a100a 100%);
+  }
+  .hero-bg::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 60% 50%, rgba(200,169,110,0.06) 0%, transparent 70%);
+  }
+  .hero-scene {
+    position: absolute; inset: 0; z-index: 1;
+    background: url('https://imagehub.tianzeqi.dev/file/1764061873786_顺为前台.png') center/cover no-repeat;
+    opacity: 0.5;
+    filter: saturate(0.4) contrast(1.1);
+  }
+  .hero-scene::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(13,13,13,0.98) 35%, rgba(13,13,13,0.4) 65%, rgba(13,13,13,0.8) 100%),
+                linear-gradient(to bottom, rgba(13,13,13,0.3) 0%, transparent 30%, transparent 70%, rgba(13,13,13,0.9) 100%);
+  }
+  /* Decorative grid lines */
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 2;
+    background-image:
+      linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 30% 50%, black 0%, transparent 70%);
+  }
+  .hero-content {
+    position: relative; z-index: 3;
+    padding: 0 3rem;
+    max-width: 800px;
+    animation: heroFadeIn 1.4s ease forwards;
+  }
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow-line {
+    width: 50px; height: 1px; background: var(--gold);
+  }
+  .hero-eyebrow span {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.25em;
+    color: var(--gold); text-transform: uppercase;
+  }
+  .hero-title-zh {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--paper);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+  .hero-title-zh strong {
+    font-weight: 600;
+    color: var(--gold-light);
+  }
+  .hero-title-en {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--mist);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+  .hero-tagline {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.25em;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    font-style: italic;
+  }
+  .hero-desc {
+    font-size: 0.88rem;
+    color: rgba(249,245,238,0.55);
+    line-height: 1.9;
+    max-width: 480px;
+    letter-spacing: 0.02em;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--ink);
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: all 0.35s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200,169,110,0.3);
+  }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    border: 1px solid rgba(200,169,110,0.5);
+    cursor: pointer;
+    transition: all 0.35s;
+  }
+  .btn-outline:hover {
+    background: rgba(200,169,110,0.08);
+    border-color: var(--gold);
+  }
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    animation: pulseDown 2s ease infinite;
+  }
+  @keyframes pulseDown {
+    0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 1; transform: translateX(-50%) translateY(6px); }
+  }
+  .hero-scroll span {
+    font-size: 0.6rem; letter-spacing: 0.2em; color: var(--mist);
+    font-family: 'Cinzel', serif;
+  }
+  .hero-scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  /* MARQUEE */
+  .marquee-strip {
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+    padding: 0.6rem 0; overflow: hidden;
+    display: flex;
+  }
+  .marquee-inner {
+    display: flex; gap: 3rem; white-space: nowrap;
+    animation: marquee 70s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-item {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.2em;
+    color: var(--ink); font-weight: 600;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+  .marquee-item::after { content: '◆'; font-size: 0.5rem; }
+
+  /* ABOUT */
+  .section {
+    padding: 7rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-label {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .section-label-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem; color: var(--gold);
+    letter-spacing: 0.15em;
+  }
+  .section-label-line {
+    width: 40px; height: 1px; background: var(--gold-dark);
+  }
+  .section-label-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem; letter-spacing: 0.25em;
+    color: var(--mist); text-transform: uppercase;
+  }
+  .section-heading-zh {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    color: var(--paper);
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .section-heading-en {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--mist);
+    letter-spacing: 0.2em;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ABOUT LAYOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  .about-text p {
+    color: rgba(249,245,238,0.65);
+    font-size: 0.9rem; line-height: 2;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.5rem;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-wrap {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  .about-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.7) contrast(1.05);
+    transition: transform 0.8s ease;
+  }
+  .about-img-wrap:hover img { transform: scale(1.04); }
+  .about-img-frame {
+    position: absolute;
+    top: -12px; right: -12px; bottom: 12px; left: 12px;
+    border: 1px solid rgba(200,169,110,0.3);
+    pointer-events: none;
+  }
+  .about-img-corner {
+    position: absolute; bottom: -8px; left: -8px;
+    width: 40px; height: 40px;
+    border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold);
+  }
+  .about-motto {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    border-left: 2px solid var(--gold);
+    background: rgba(200,169,110,0.04);
+  }
+  .about-motto p {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.1rem; color: var(--gold-light);
+    letter-spacing: 0.2em; font-weight: 300;
+    margin: 0;
+  }
+
+  /* DIVIDER */
+  .gold-divider {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 3rem;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+  .gold-divider-line { flex: 1; height: 1px; background: rgba(200,169,110,0.2); }
+  .gold-divider-icon {
+    font-size: 0.6rem; color: var(--gold); letter-spacing: 0.2em;
+  }
+
+  /* SERVICES */
+  .services-bg {
+    background: linear-gradient(180deg, var(--ink) 0%, #0f0e09 50%, var(--ink) 100%);
+    padding: 7rem 0;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    margin-top: 3rem;
+    background: rgba(200,169,110,0.15);
+    border: 1px solid rgba(200,169,110,0.15);
+  }
+  .service-card {
+    background: var(--ink-mid);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.4s;
+    cursor: default;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .service-card:hover { background: rgba(200,169,110,0.06); }
+  .service-card:hover::before { opacity: 1; }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; color: rgba(200,169,110,0.12);
+    font-weight: 300; line-height: 1;
+    margin-bottom: 1.5rem;
+    transition: color 0.4s;
+  }
+  .service-card:hover .service-num { color: rgba(200,169,110,0.2); }
+  .service-icon {
+    font-size: 1.6rem; margin-bottom: 1rem;
+    filter: grayscale(0.3);
+  }
+  .service-title-zh {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem; font-weight: 600;
+    color: var(--gold-light); letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+  .service-title-en {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem; letter-spacing: 0.18em;
+    color: var(--mist); text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .service-desc {
+    font-size: 0.82rem; color: rgba(249,245,238,0.5);
+    line-height: 1.9; letter-spacing: 0.03em;
+  }
+
+  /* STATS */
+  .stats-strip {
+    padding: 5rem 3rem;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2rem; text-align: center;
+  }
+  .stat-item { padding: 2rem; border: 1px solid rgba(200,169,110,0.12); }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-label-zh {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 0.78rem; color: rgba(249,245,238,0.6);
+    letter-spacing: 0.08em;
+  }
+  .stat-label-en {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem; color: var(--mist);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  /* CONTACT */
+  .contact-bg {
+    background: #080808;
+    padding: 7rem 0;
+  }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 3rem;
+  }
+  .contact-info-block {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,169,110,0.1);
+  }
+  .contact-info-block:last-child { border-bottom: none; }
+  .contact-icon { font-size: 1.2rem; margin-top: 0.1rem; }
+  .contact-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem; letter-spacing: 0.2em;
+    color: var(--gold); margin-bottom: 0.3rem;
+  }
+  .contact-value {
+    font-size: 0.9rem; color: var(--paper-warm);
+    letter-spacing: 0.05em;
+  }
+  .contact-value a { color: inherit; text-decoration: none; transition: color 0.3s; }
+  .contact-value a:hover { color: var(--gold-light); }
+  .contact-form {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem; letter-spacing: 0.18em;
+    color: var(--gold); text-transform: uppercase;
+  }
+  .form-input, .form-textarea {
+    background: rgba(200,169,110,0.04);
+    border: 1px solid rgba(200,169,110,0.2);
+    color: var(--paper);
+    padding: 0.8rem 1rem;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--mist); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(200,169,110,0.12);
+    padding: 2.5rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-brand {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .footer-brand img { height: 32px; opacity: 0.8; }
+  .footer-brand-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.78rem; color: var(--mist);
+    letter-spacing: 0.05em;
+  }
+  .footer-copy {
+    font-size: 0.7rem; color: var(--mist);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.08em;
+  }
+
+  /* FADE IN ON SCROLL */
+  .fade-up {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .section { padding: 5rem 1.5rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 3rem 1.5rem; }
+    .hero-content { padding: 0 1.5rem; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    .gold-divider { padding: 0 1.5rem; }
+    .contact-bg .contact-grid { padding: 0 1.5rem; }
+  }
+
+  /* Gold shimmer animation */
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .gold-shimmer {
+    background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold-light) 40%, var(--gold) 60%, var(--gold-dark) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+</style>
+</head>
+<body class="lang-zh">
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <img src="https://imagehub.tianzeqi.dev/file/favicon/1774843710062_顺为国际集团.png" alt="Logo" onerror="this.style.display='none'">
+    <div class="nav-logo-text">
+      <span class="cn zh">順為國際集團有限公司</span>
+      <span class="cn en">SHINEVISTA GLOBAL</span>
+      <span class="en-sub">SHINEVISTA GLOBAL GROUP LIMITED</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" class="zh">關於我們</a><a href="#about" class="en">About</a></li>
+    <li><a href="#services" class="zh">業務版圖</a><a href="#services" class="en">Services</a></li>
+    <li><a href="#contact" class="zh">聯絡我們</a><a href="#contact" class="en">Contact</a></li>
+  </ul>
+  <button class="lang-btn" onclick="toggleLang()">
+    <span class="zh">EN</span><span class="en">中文</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-scene"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="zh">順為國際集團有限公司</span>
+      <span class="en">SHINEVISTA GLOBAL GROUP LIMITED</span>
+    </div>
+    <h1 class="hero-title-zh zh">
+      以 <strong class="gold-shimmer">AI</strong> 驅動未來<br>以智慧重塑商業
+    </h1>
+    <h1 class="hero-title-zh en" style="font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,3rem);letter-spacing:0.05em;font-weight:300;">
+      <strong class="gold-shimmer">AI-Powered</strong> Business<br>Intelligence & Automation
+    </h1>
+    <p class="hero-title-en zh">SHINEVISTA GLOBAL GROUP LIMITED</p>
+    <p class="hero-tagline zh">順勢而為，知行知止</p>
+    <p class="hero-tagline en" style="font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:0.1em;">Act with the trend. Know when to advance, know when to rest.</p>
+    <p class="hero-desc zh">
+      深耕 AI 落地部署、自動化工作流與企業智能化轉型，<br>
+      助力企業以技術之力，從容應對新時代挑戰。
+    </p>
+    <p class="hero-desc en">
+      We specialize in enterprise AI deployment, automation workflows, and intelligent digital transformation — empowering businesses to thrive in the era of artificial intelligence.
+    </p>
+    <div class="hero-cta">
+      <a href="#services" class="btn-primary">
+        <span class="zh">探索業務版圖</span>
+        <span class="en">Explore Services</span>
+      </a>
+      <a href="#contact" class="btn-outline">
+        <span class="zh">立即聯絡</span>
+        <span class="en">Contact Us</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="zh">向下探索</span>
+    <span class="en">Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-inner" id="marqueeInner"></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" style="padding: 7rem 0;">
+  <div class="section fade-up">
+    <div class="section-label">
+      <span class="section-label-num">01</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-text zh">關於順為</span>
+      <span class="section-label-text en">About Us</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-heading-zh zh">順勢而為<br><span style="color:var(--gold)">與時俱進</span></h2>
+        <h2 class="section-heading-zh en" style="font-family:'Cinzel',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;">With the Tide<br><span style="color:var(--gold)">Forward Together</span></h2>
+        <p class="section-heading-en zh">ABOUT SHINEVISTA</p>
+        <p class="section-heading-en en">順為國際集團有限公司</p>
+        <p class="zh">順為國際集團有限公司（SHINEVISTA GLOBAL GROUP LIMITED）是一家深耕人工智能生態的企業服務集團，聚焦 AI 解決方案落地、跨境電商智能運營及企業數字化轉型。</p>
+        <p class="en">SHINEVISTA GLOBAL GROUP LIMITED is an enterprise services group deeply rooted in the AI ecosystem, focusing on AI solution implementation, intelligent cross-border e-commerce operations, and enterprise digital transformation.</p>
+        <p class="zh">我們整合前沿大模型技術、自動化工作流與智能體（Agent）架構，為企業提供從策略諮詢到系統交付的全鏈路服務，真正實現 AI 賦能落地。</p>
+        <p class="en">We integrate cutting-edge large language model technology, automation workflows, and Agent architectures to provide end-to-end services from strategic consulting to system delivery — truly realizing AI empowerment in practice.</p>
+        <div class="about-motto">
+          <p class="zh">「順勢而為，知行知止」</p>
+          <p class="en">"Act with the trend. Know when to advance, know when to rest."</p>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-img-wrap">
+          <img src="https://imagehub.tianzeqi.dev/file/1764061873786_顺为前台.png" alt="顺为国际集团办公室">
+          <div class="about-img-frame"></div>
+          <div class="about-img-corner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="gold-divider">
+  <div class="gold-divider-line"></div>
+  <div class="gold-divider-icon">◆ ◆ ◆</div>
+  <div class="gold-divider-line"></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="services-bg">
+  <div class="section fade-up" style="padding-top:0;padding-bottom:0;">
+    <div class="section-label">
+      <span class="section-label-num">02</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-text zh">業務版圖</span>
+      <span class="section-label-text en">Services</span>
+    </div>
+    <h2 class="section-heading-zh zh">全棧 AI 服務體系</h2>
+    <h2 class="section-heading-zh en">Full-Stack AI Service Ecosystem</h2>
+    <p class="section-heading-en zh">SERVICE PORTFOLIO</p>
+    <p class="section-heading-en en">業務版圖</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon">🤖</div>
+        <div class="service-title-zh zh">AI 自動化一對一部署</div>
+        <div class="service-title-zh en">AI & Automation Deployment</div>
+        <div class="service-title-en zh">AI & AUTOMATION · ONE-TO-ONE</div>
+        <div class="service-title-en en">AI · 自動化工作流 · 一對一落地</div>
+        <p class="service-desc zh">AI 與自動化工作流的個性化企業落地方案，從需求診斷到系統交付，全程一對一深度陪跑，確保技術真正服務於業務增長。</p>
+        <p class="service-desc en">Personalized AI and automation deployment for enterprises — from needs diagnosis to system delivery, with one-to-one in-depth guidance ensuring technology truly serves business growth.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">🛒</div>
+        <div class="service-title-zh zh">亞馬遜 + AI 高階運營培訓</div>
+        <div class="service-title-zh en">Amazon + AI Advanced Training</div>
+        <div class="service-title-en zh">AMAZON · AI · ADVANCED OPERATIONS</div>
+        <div class="service-title-en en">亞馬遜 · AI · 高階運營</div>
+        <p class="service-desc zh">融合亞馬遜平台深度運營與 AI 工具應用的系統化培訓，覆蓋選品、廣告、品牌建設、數據分析全鏈路，賦能高效跨境電商運營。</p>
+        <p class="service-desc en">Systematic training combining deep Amazon platform operations with AI tools, covering product selection, advertising, brand building, and data analytics across the entire e-commerce value chain.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">🌐</div>
+        <div class="service-title-zh zh">獨立站 + AI 自動化行銷</div>
+        <div class="service-title-zh en">DTC + AI Automated Marketing</div>
+        <div class="service-title-en zh">INDEPENDENT SITE · AI · MARKETING</div>
+        <div class="service-title-en en">獨立站 · AI · 自動化行銷</div>
+        <p class="service-desc zh">從獨立站搭建到 AI 驅動的自動化行銷運營，整合 SEO、社交廣告、郵件行銷及數據分析，打造高轉化率的 DTC 品牌閉環。</p>
+        <p class="service-desc en">From independent site development to AI-driven automated marketing operations — integrating SEO, social advertising, email marketing, and data analytics to build high-conversion DTC brand ecosystems.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">🏗️</div>
+        <div class="service-title-zh zh">私有化 AI 全棧交付</div>
+        <div class="service-title-zh en">Private AI Full-Stack Delivery</div>
+        <div class="service-title-en zh">PRIVATE AI · ENTERPRISE DEPLOYMENT</div>
+        <div class="service-title-en en">私有化 · 企業級 · AI 部署</div>
+        <p class="service-desc zh">提供企業級全棧 AI 模型與向量數據庫私有化部署，確保數據主權、業務安全與高性能推理，支持主流大模型本地化運行。</p>
+        <p class="service-desc en">Enterprise-grade full-stack AI model and vector database private deployment, ensuring data sovereignty, business security, and high-performance inference with support for mainstream LLMs running locally.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-icon">⚡</div>
+        <div class="service-title-zh zh">智能 Agent 編排體系</div>
+        <div class="service-title-zh en">Intelligent Agent Orchestration</div>
+        <div class="service-title-en zh">AGENT · API GATEWAY · SECURITY</div>
+        <div class="service-title-en en">智能體 · API 網關 · 安全治理</div>
+        <p class="service-desc zh">負責智能體編排、API 網關管理及權限安全治理，構建可靠、可觀測的 AI Agent 生產體系，賦予企業 AI 系統真正的自主執行能力。</p>
+        <p class="service-desc en">Intelligent agent orchestration, API gateway management, and permission security governance — building reliable, observable AI Agent production systems that give enterprises true autonomous execution capability.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-icon">📊</div>
+        <div class="service-title-zh zh">企業 AI 提效內訓</div>
+        <div class="service-title-zh en">Enterprise AI Efficiency Training</div>
+        <div class="service-title-en zh">CORPORATE AI · INTERNAL TRAINING</div>
+        <div class="service-title-en en">企業內訓 · AI 提效 · 人才培養</div>
+        <p class="service-desc zh">透過自動化工作流重塑企業多模態運營效率，並提供定制化 AI 企業內訓，從管理層到執行層全員 AI 素養提升，推動組織智能化進化。</p>
+        <p class="service-desc en">Reshape enterprise multi-modal operational efficiency through automation workflows, providing customized AI corporate training from management to execution level, driving organizational intelligent evolution.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip fade-up">
+  <div class="stat-item">
+    <div class="stat-num">6+</div>
+    <div class="stat-label-zh zh">核心業務板塊</div>
+    <div class="stat-label-zh en">Core Service Lines</div>
+    <div class="stat-label-en">SERVICE LINES</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">360°</div>
+    <div class="stat-label-zh zh">全鏈路 AI 服務</div>
+    <div class="stat-label-zh en">Full-Chain AI Coverage</div>
+    <div class="stat-label-en">AI COVERAGE</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">1v1</div>
+    <div class="stat-label-zh zh">個性化落地陪跑</div>
+    <div class="stat-label-zh en">Personalized Deployment</div>
+    <div class="stat-label-en">DEPLOYMENT MODEL</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">HK</div>
+    <div class="stat-label-zh zh">香港國際視野</div>
+    <div class="stat-label-zh en">Hong Kong Global Vision</div>
+    <div class="stat-label-en">BASED IN HONG KONG</div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="gold-divider">
+  <div class="gold-divider-line"></div>
+  <div class="gold-divider-icon">◆ ◆ ◆</div>
+  <div class="gold-divider-line"></div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-bg">
+  <div class="contact-grid fade-up">
+    <div>
+      <div class="section-label" style="margin-bottom:1.5rem;">
+        <span class="section-label-num">03</span>
+        <div class="section-label-line"></div>
+        <span class="section-label-text zh">聯絡我們</span>
+        <span class="section-label-text en">Contact Us</span>
+      </div>
+      <h2 class="section-heading-zh zh">開啟您的<br><span style="color:var(--gold)">AI 轉型之旅</span></h2>
+      <h2 class="section-heading-zh en" style="font-family:'Cinzel',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;">Begin Your<br><span style="color:var(--gold)">AI Transformation</span></h2>
+      <p class="section-heading-en zh">GET IN TOUCH</p>
+      <p class="section-heading-en en">與我們聯繫</p>
+
+      <div style="margin-top:2.5rem;">
+        <div class="contact-info-block">
+          <div class="contact-icon">📧</div>
+          <div>
+            <div class="contact-label zh">電郵</div>
+            <div class="contact-label en">EMAIL</div>
+            <div class="contact-value">
+              <a href="mailto:support@shinevista.group">support@shinevista.group</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-info-block">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label zh">電話</div>
+            <div class="contact-label en">PHONE</div>
+            <div class="contact-value">
+              <a href="tel:+85261600784">+852 6160 0784</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-info-block">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <div class="contact-label zh">公司名稱</div>
+            <div class="contact-label en">COMPANY</div>
+            <div class="contact-value zh">順為國際集團有限公司</div>
+            <div class="contact-value en">SHINEVISTA GLOBAL GROUP LIMITED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label class="form-label zh">您的姓名</label>
+          <label class="form-label en">YOUR NAME</label>
+          <input class="form-input" type="text" placeholder="請輸入姓名 / Your Name">
+        </div>
+        <div class="form-group">
+          <label class="form-label zh">電郵地址</label>
+          <label class="form-label en">EMAIL ADDRESS</label>
+          <input class="form-input" type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label zh">業務需求</label>
+          <label class="form-label en">INQUIRY TYPE</label>
+          <select class="form-input" style="cursor:pointer;background:rgba(200,169,110,0.04);">
+            <option value="" class="zh">請選擇業務類型</option>
+            <option value="" class="en" style="display:none">Select service type</option>
+            <option>AI 自動化部署</option>
+            <option>亞馬遜運營培訓</option>
+            <option>獨立站行銷</option>
+            <option>私有化 AI 交付</option>
+            <option>智能 Agent</option>
+            <option>企業 AI 內訓</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label zh">詳細說明</label>
+          <label class="form-label en">MESSAGE</label>
+          <textarea class="form-textarea" placeholder="請描述您的需求 / Describe your needs..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem;" onclick="handleSubmit(this)">
+          <span class="zh">發送諮詢</span>
+          <span class="en">Send Inquiry</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img src="https://imagehub.tianzeqi.dev/file/favicon/1774843710062_顺为国际集团.png" alt="Logo" onerror="this.style.display='none'">
+    <div>
+      <div class="footer-brand-name zh">順為國際集團有限公司</div>
+      <div class="footer-brand-name en">SHINEVISTA GLOBAL GROUP LIMITED</div>
+      <div style="font-family:'Cinzel',serif;font-size:0.55rem;color:var(--gold-dark);letter-spacing:0.1em;margin-top:0.1rem;">順勢而為，知行知止</div>
+    </div>
+  </div>
+  <div class="footer-copy">
+    © 2025 SHINEVISTA GLOBAL GROUP LIMITED. ALL RIGHTS RESERVED.
+  </div>
+</footer>
+
+<script>
+// LANG TOGGLE
+function toggleLang() {
+  const body = document.body;
+  if (body.classList.contains('lang-zh')) {
+    body.classList.remove('lang-zh');
+    body.classList.add('lang-en');
+    document.documentElement.lang = 'en';
+  } else {
+    body.classList.remove('lang-en');
+    body.classList.add('lang-zh');
+    document.documentElement.lang = 'zh-HK';
+  }
+}
+
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 80) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// MARQUEE (duplicate items)
+const items = [
+  'AI 企業落地解決方案', 'AI Enterprise Solutions',
+  '亞馬遜智能運營', 'Amazon Smart Operations',
+  '私有化模型部署', 'Private Model Deployment',
+  '自動化工作流', 'Automation Workflows',
+  '智能 Agent 編排', 'Intelligent Agent Orchestration',
+  '企業 AI 提效內訓', 'Corporate AI Training'
+];
+const marquee = document.getElementById('marqueeInner');
+const html = [...items, ...items, ...items, ...items].map(t =>
+  `<span class="marquee-item">${t}</span>`
+).join('');
+marquee.innerHTML = html + html;
+
+// FADE IN ON SCROLL
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// FORM SUBMIT
+function handleSubmit(btn) {
+  const isZh = document.body.classList.contains('lang-zh');
+  btn.style.opacity = '0.7';
+  btn.style.pointerEvents = 'none';
+  setTimeout(() => {
+    btn.querySelector('.zh').textContent = isZh ? '已發送 ✓' : '已發送 ✓';
+    btn.querySelector('.en').textContent = 'Sent ✓';
+    btn.style.opacity = '1';
+  }, 1200);
+}
+
+// SMOOTH ANCHOR
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
