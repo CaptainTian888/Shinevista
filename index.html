@@ -89,7 +89,7 @@
 
   /* MARQUEE */
   .marquee-strip { background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark)); padding: 0.6rem 0; overflow: hidden; display: flex; }
-  .marquee-inner { display: flex; gap: 3rem; white-space: nowrap; animation: marquee 70s linear infinite; }
+  .marquee-inner { display: flex; gap: 3rem; white-space: nowrap; animation: marquee 100s linear infinite; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   .marquee-item { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--ink); font-weight: 600; display: flex; align-items: center; gap: 1.5rem; }
   .marquee-item::after { content: '◆'; font-size: 0.5rem; }
@@ -643,7 +643,7 @@
       <div style="font-family:'Cinzel',serif;font-size:0.55rem;color:var(--gold-dark);letter-spacing:0.1em;margin-top:0.1rem;">順勢而為，知行知止</div>
     </div>
   </div>
-  <div class="footer-copy">© 2025 SHINEVISTA GLOBAL GROUP LIMITED. ALL RIGHTS RESERVED.</div>
+  <div class="footer-copy">© <span id="currentYear">2025</span> SHINEVISTA GLOBAL GROUP LIMITED. ALL RIGHTS RESERVED.</div>
 </footer>
 
 <script>
@@ -701,6 +701,9 @@ function handleSubmit(btn) {
     btn.style.opacity = '1';
   }, 1200);
 }
+
+// CURRENT YEAR
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a => {
